@@ -26,12 +26,12 @@ public class RewardValue {
         }
     }
 
-    // Get cash value
+    // Get cash value//
     public double getCashValue() {
         return cashValue;
     }
 
-    // Get miles value
+    // Get miles value//
     public double getMilesValue() {
         return milesValue;
     }
