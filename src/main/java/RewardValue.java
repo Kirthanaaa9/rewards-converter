@@ -1,39 +1,24 @@
- // Adjust this if your package structure is different
-
 public class RewardValue {
-    private double cashValue; // Cash value of the reward
-    private double milesValue; // Miles value of the reward
+    private double cashValue;
+    private int milesValue;
 
-    // Conversion rate from miles to cash
-    private static final double MILES_TO_CASH_RATE = 0.0035;
-    // Conversion rate from cash to miles
-    private static final double CASH_TO_MILES_RATE = 1 / MILES_TO_CASH_RATE;
-
-    // Constructor that accepts cash value
+    // Constructor for cash value
     public RewardValue(double cashValue) {
         this.cashValue = cashValue;
-        this.milesValue = cashValue * CASH_TO_MILES_RATE;
+        this.milesValue = (int) (cashValue * 100); // Assuming 1 dollar = 100 miles
     }
 
-    // Constructor that accepts miles value
-    public RewardValue(boolean isMiles, double value) {
-        if (isMiles) {
-            this.milesValue = value;
-            this.cashValue = value * MILES_TO_CASH_RATE;
-        } else {
-            this.cashValue = value;
-            this.milesValue = value * CASH_TO_MILES_RATE;
-        }
+    // Constructor for miles value
+    public RewardValue(int milesValue) {
+        this.milesValue = milesValue;
+        this.cashValue = milesValue * 0.0035; // Assuming 1 mile = 0.0035 dollars
     }
 
-    // Get cash value//
     public double getCashValue() {
         return cashValue;
     }
 
-    // Get miles value//
-    public double getMilesValue() {
+    public int getMilesValue() {
         return milesValue;
     }
 }
-
